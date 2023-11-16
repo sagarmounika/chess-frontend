@@ -18,7 +18,9 @@ export const signUpHandler = createAsyncThunk("auth/signup", async args => {
     return response.data
   } catch (error) {
     onFailure()
-    throw error
+      throw error?.response?.data
+        ? error?.response?.data?.detail
+        : error.message
   }
 })
 export const loginHandler = createAsyncThunk("auth/login", async args => {
@@ -52,13 +54,13 @@ const authSlice = createSlice({
     setUser(state, action) {
       state.user = action.payload
     },
-    clearUser(state) {
-      state.user = null
+    logOut(state) {
+      localStorage.clear()
     },
     clearError(state) {
-      state.loginError = null;
-       state.error= null;
-    }
+      state.loginError = null
+      state.error = null
+    },
   },
   extraReducers: builder => {
     builder
@@ -90,5 +92,5 @@ const authSlice = createSlice({
   },
 })
 
-export const {setUser, clearUser,clearError} = authSlice.actions
+export const {setUser,  clearError} = authSlice.actions
 export default authSlice.reducer

@@ -46,7 +46,11 @@ export const ratingsHandler = createAsyncThunk("auth/ratings", async args => {
 
     return response.data
   } catch (error) {
-    onFailure()
+    if (error.response.status === 403) {
+      onFailure(true)
+    } else {
+      onFailure(false)
+    }
     console.log(error, "error")
     throw error?.response?.data ? error?.response?.data?.detail : error.message
   }
@@ -54,7 +58,7 @@ export const ratingsHandler = createAsyncThunk("auth/ratings", async args => {
 const playersSlice = createSlice({
   name: "players",
   initialState: {
-    players: null,
+    players: [],
     loading: false,
     error: null,
     loginLoading: false,

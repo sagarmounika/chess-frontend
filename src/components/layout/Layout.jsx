@@ -6,7 +6,7 @@ export default function Layout() {
   return (
     <>
       <Navbar />
-      <Center width="100%" height="100%">
+      <Center width="100%" height="100%" mt="5">
         <Outlet />
       </Center>
     </>

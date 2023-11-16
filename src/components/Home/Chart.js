@@ -13,7 +13,7 @@ import {
   DrawerContent,
   DrawerCloseButton,
 } from "@chakra-ui/react"
-const Chart = ({username, isOpen, onClose}) => {
+const Chart = ({username, isOpen, onClose, failureHandler}) => {
   const {ratingHistory, ratingError, ratingsLoading} = useSelector(
     state => state.players
   )
@@ -47,11 +47,6 @@ const Chart = ({username, isOpen, onClose}) => {
   useEffect(() => {
     const token = getLocalStorage("token")
     const successHandler = () => {}
-    const failureHandler = status => {
-      if (status) {
-      } else {
-      }
-    }
     dispatch(
       ratingsHandler({
         token: token,

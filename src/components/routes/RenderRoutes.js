@@ -8,8 +8,8 @@ import {Route, createRoutesFromElements} from "react-router-dom"
 
 const ROUTES = createRoutesFromElements(
   <Route path="/">
-    <Route path="/" element={<SignUp />} />
-    <Route path="login" element={<Login />} />
+    <Route path="/" element={<Login />} />
+    <Route path="register" element={<SignUp />} />
     <Route element={<Layout />}>
       <Route path="home" element={<Home />} />
     </Route>
