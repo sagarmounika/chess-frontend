@@ -1,0 +1,73 @@
+.popupContainer {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: space-around; */
+    width: 35%;
+    background-color: black;
+    position: sticky;
+    top: 0;
+    padding: 2%;
+    /* overflow: hidden; */
+}
+.popupMainContainer {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: 70%;
+    width: 100%;
+}
+.popUpImg {
+    height: 100%;
+    /* margin-top: 3%; */
+    width: 80%;
+    object-fit: cover;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.popupMainContainer span {
+    font-size: 35px;
+    width: 10%;
+    /* margin-top: 3%; */
+    font-weight: 300;
+    color: aliceblue;
+    display: flex;
+    cursor: pointer;
+    /* align-items: flex-start; */
+    justify-content: space-between;
+}
+.iconContainer {
+    display: flex;
+    /* align-items: center; */
+    justify-content: flex-start;
+    height: 20%;
+    /* width: 50%; */
+    margin-top: 2em;
+}
+.iconContainer .iconBox {
+    color: aliceblue;
+    font-size: 1.5em;
+    margin-right: 1em;
+    cursor: pointer;
+}
+.disabledPrev,
+.disabledNext {
+    pointer-events: none;
+    opacity: 0.4;
+    color: aliceblue;
+    font-size: 1.5em;
+    margin-right: 1em;
+    cursor: pointer;
+}
+@media screen and (max-width: 900px) {
+    .popupContainer {
+        width: 100%;
+        /* position: static; */
+        height: 40vh;
+    }
+    .iconContainer {
+        align-items: center;
+    }
+}
